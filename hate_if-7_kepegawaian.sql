@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2022 at 11:30 AM
+-- Generation Time: Aug 05, 2022 at 03:45 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.1.32
 
@@ -74,8 +74,10 @@ CREATE TABLE `karyawan` (
 --
 
 INSERT INTO `karyawan` (`id_karyawan`, `nama`, `unit`) VALUES
-(1, 'LimitMax', 'QC'),
-(2, 'elsa', 'QC');
+(1, 'LimitMax', 'QA'),
+(2, 'elsa', 'QC'),
+(4, 'Abdul', 'Karyawan'),
+(5, 'Hapsari', 'Admin');
 
 --
 -- Triggers `karyawan`
@@ -112,7 +114,9 @@ CREATE TABLE `log_unit` (
 INSERT INTO `log_unit` (`id_log`, `nama`, `unit_lama`, `unit_baru`, `waktu`) VALUES
 (1, 'LimitMax', 'Karyawan', 'QC', '2022-08-05'),
 (2, 'elsa', 'QC', 'Qa', '2022-08-05'),
-(3, 'elsa', 'Qa', 'QC', '2022-08-05');
+(3, 'elsa', 'Qa', 'QC', '2022-08-05'),
+(4, 'Testing', 'Quality Control', 'Analyst System', '2022-08-05'),
+(5, 'LimitMax', 'QC', 'QA', '2022-08-05');
 
 -- --------------------------------------------------------
 
@@ -123,7 +127,7 @@ INSERT INTO `log_unit` (`id_log`, `nama`, `unit_lama`, `unit_baru`, `waktu`) VAL
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `username` varchar(15) NOT NULL,
-  `password` varchar(15) NOT NULL
+  `password` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -170,19 +174,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `log_unit`
 --
 ALTER TABLE `log_unit`
-  MODIFY `id_log` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_log` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -198,7 +202,7 @@ ALTER TABLE `user`
 -- Constraints for table `absensi`
 --
 ALTER TABLE `absensi`
-  ADD CONSTRAINT `absensi_ibfk_1` FOREIGN KEY (`id_karyawan`) REFERENCES `karyawan` (`id_karyawan`);
+  ADD CONSTRAINT `absensi_ibfk_1` FOREIGN KEY (`id_karyawan`) REFERENCES `karyawan` (`id_karyawan`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

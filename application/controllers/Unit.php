@@ -12,7 +12,7 @@ class Unit extends CI_Controller {
     public function index()
     {
         $head = array(
-            'title' => 'Data Ganti Posisi',
+            'title' => 'Hasil Trigger Karyawan',
             'head' => 'Data Ganti Unit Karyawan'
         );
 

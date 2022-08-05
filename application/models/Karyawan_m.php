@@ -15,13 +15,15 @@ class Karyawan_m extends CI_Model {
 
     public function data_karyawan()
     {
-        return $this->db->get('karyawan');
+        $query = 'call tampilK()';
+        return $this->db->query($query);
     }
 
     // log unit
     public function log_unit()
     {
-        return $this->db->get('log_unit');
+        $query = 'call tampillog()';
+        return $this->db->query($query);
     }
 
     public function karyawan_byid($id)
